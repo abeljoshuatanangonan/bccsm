@@ -1,0 +1,108 @@
+/* EVENTS PAGE */
+/* EVENTS PAGE */
+/* EVENTS PAGE */
+/* EVENTS PAGE */
+/* ================================
+   EVENTS Page Styles
+================================ */
+/* Featured Event Section */
+.events-page .eventspage-title {
+  font-family: 'Oswald', sans-serif;
+  font-size: clamp(22px, 2.4vw, 28px);
+  font-weight: 700;
+  color: #3b3b3b;
+  margin-bottom: 20px;
+}
+
+.eventspage-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 auto;
+  /* adds space left and right */
+}
+
+.featuredevent {
+  max-width: 1000px;
+  margin: 30px auto;
+  padding: 0 20px;
+}
+
+/* Event Card */
+.featuredevent-card {
+  max-width: 1000px;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.featuredevent-image {
+  width: 100%;
+  height: clamp(180px, 28vw, 320px);
+  object-fit: cover;
+  display: block;
+  border-radius: 15px;
+}
+
+/* Wrap image + overlay only */
+.featuredevent-media {
+  position: relative;
+  overflow: hidden;
+  border-radius: 15px;
+}
+
+/* Overlay should cover only the media (image area), not the caption */
+.featuredevent-overlay {
+  position: absolute;
+  inset: 0;
+}
+
+/* Caption below the image */
+.featuredevent-caption {
+  margin: 0;
+  padding: 12px 14px;
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  line-height: 1.4;
+  color: #222;
+  background: #fff;
+  border-radius: 0 0 15px 15px;
+}
+
+/* Dark overlay */
+.featuredevent-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.45);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* vertical centering */
+  align-items: center;
+  /* horizontal centering */
+  text-align: center;
+  padding: 20px;
+}
+
+.featuredevent-name {
+  font-size: clamp(18px, 3vw, 36px);
+  font-weight: 800;
+  text-transform: uppercase;
+  color: #fff;
+  margin-top: -30px;
+  margin-bottom: 15px;
+  margin-left: -40px;
+}
+
+.featuredevent-date {
+  font-size: clamp(10px, 1vw, 15px);
+  font-family: 'Inter', sans-serif;
+  color: #ddd;
+  margin-top: -10px;
+  margin-left: -50px;
+  /* same offset you used for the name */
+}

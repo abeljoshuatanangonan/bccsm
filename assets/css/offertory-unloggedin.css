@@ -1,0 +1,149 @@
+/* public_html/assets/css/offertory-unloggedin.css */
+
+body {
+    background: #ffffff;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    /* header should control top spacing */
+}
+
+/* Center ONLY the page content area */
+#main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 120px);
+    /* adjust if your header is taller/shorter */
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+
+.offertory-choice {
+    text-align: center;
+    background: white;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 400px;
+    transition: all 0.3s ease-in-out;
+}
+
+.offertory-choice h2 {
+    margin-bottom: 20px;
+    color: #333;
+    font-size: 1.8rem;
+}
+
+.offertory-choice p {
+    margin-bottom: 30px;
+    color: #666;
+    font-size: 1rem;
+}
+
+.choice-btn {
+    display: block;
+    width: 100%;
+    margin: 10px 0;
+    padding: 0.8rem 2rem;
+    font-size: 1rem;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    box-sizing: border-box;
+}
+
+.choice-btn.member {
+    background: #FFD700;
+    color: white;
+}
+
+.choice-btn.member:hover {
+    background: #e6c200;
+}
+
+.choice-btn.visitor {
+    background: #ffffff;
+    color: #FFD700;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.choice-btn.visitor:hover {
+    background: #eaeaea;
+}
+
+.back-link {
+    display: inline-block;
+    margin-top: 20px;
+    color: #FFD700;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.back-link:hover {
+    text-decoration: underline;
+}
+
+/* ===========================
+   RESPONSIVE ADJUSTMENTS
+   =========================== */
+
+/* Small phones (below 360px width) */
+@media (max-width: 360px) {
+    .offertory-choice {
+        padding: 25px;
+        width: 95%;
+    }
+
+    .offertory-choice h2 {
+        font-size: 1.4rem;
+    }
+
+    .offertory-choice p {
+        font-size: 0.9rem;
+    }
+
+    .choice-btn {
+        font-size: 14px;
+        padding: 10px;
+    }
+}
+
+/* Tablets and small laptops (600px–900px) */
+@media (min-width: 600px) and (max-width: 900px) {
+    .offertory-choice {
+        padding: 50px;
+        max-width: 500px;
+    }
+
+    .offertory-choice h2 {
+        font-size: 2rem;
+    }
+
+    .choice-btn {
+        font-size: 18px;
+        padding: 14px;
+    }
+}
+
+/* Large screens (above 1200px) */
+@media (min-width: 1200px) {
+    body {
+        background: #ffffff;
+        /* was: linear-gradient(...) */
+    }
+
+    .offertory-choice {
+        padding: 60px;
+        max-width: 500px;
+    }
+
+    .offertory-choice h2 {
+        font-size: 2.2rem;
+    }
+}

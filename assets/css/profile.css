@@ -1,0 +1,353 @@
+.profile-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: stretch;
+    width: 100%;
+}
+
+.profile-action-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    width: 100%;
+}
+
+.profile-status-msg {
+    margin-top: 10px;
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 18px;
+    display: none;
+}
+
+.profile-status-msg.success {
+    color: green;
+}
+
+.profile-status-msg.error {
+    color: red;
+}
+
+.profile-readonly {
+    min-height: 42px;
+    display: flex;
+    align-items: center;
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 20px;
+    color: #333;
+    border-bottom: 1px solid transparent;
+}
+
+.profile-form input[disabled],
+.profile-form select[disabled] {
+    background: #f7f7f7;
+    color: #333;
+    cursor: default;
+    opacity: 1;
+}
+
+.profile-form .flatpickr-input[disabled] {
+    background: #f7f7f7;
+    color: #333;
+    cursor: default;
+    opacity: 1;
+}
+
+.profile-form .flatpickr-input[readonly] {
+    background: #fff;
+    color: #333;
+    cursor: pointer;
+    opacity: 1;
+}
+
+#profileEditBtn,
+#changeCredentialsBtn {
+    width: 100%;
+    min-width: 0;
+    max-width: none;
+    text-align: center;
+    box-sizing: border-box;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#profileCancelBtn {
+    width: 100%;
+    min-width: 0;
+    max-width: none;
+    text-align: center;
+    box-sizing: border-box;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media (max-width: 768px) {
+    .profile-action-row {
+        grid-template-columns: 1fr;
+    }
+
+    #profileEditBtn,
+    #changeCredentialsBtn,
+    #profileCancelBtn {
+        width: 100%;
+    }
+}
+
+body.profile-overlay-open {
+    overflow: hidden;
+}
+
+.profile-credentials-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 3000;
+    padding: 16px;
+    box-sizing: border-box;
+    overflow-y: auto;
+}
+
+.profile-credentials-box {
+    width: min(520px, 100%);
+    max-width: 100%;
+    max-height: calc(100vh - 32px);
+    background: #fff;
+    border-radius: 12px;
+    padding: 24px;
+    box-sizing: border-box;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    overflow-y: auto;
+    margin: auto;
+}
+
+.profile-credentials-box h3 {
+    margin: 0 0 16px;
+    font-family: 'Oswald', sans-serif;
+    font-size: 26px;
+    color: #333;
+}
+
+.profile-credentials-note {
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 20px;
+    color: #333;
+    margin: 0 0 20px;
+    line-height: 1.5;
+}
+
+.profile-credentials-grid {
+    margin-bottom: 20px;
+    gap: 15px;
+}
+
+.profile-credentials-grid .input-error {
+    position: static;
+    display: block;
+    margin-top: 6px;
+    color: red;
+    font-size: 14px;
+    font-family: 'Open Sans Condensed', sans-serif;
+}
+
+.profile-credentials-actions {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.profile-credentials-actions button {
+    flex: 1 1 0;
+}
+
+@media (max-width: 768px) {
+    .profile-credentials-box {
+        padding: 18px;
+    }
+
+    .profile-credentials-actions {
+        flex-direction: column;
+    }
+}
+
+.profile-credentials-box input,
+.profile-credentials-box select,
+.profile-credentials-box textarea {
+    width: 100%;
+    padding: 10px 12px;
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 18px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+}
+
+.profile-credentials-box label {
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.profile-credentials-grid>div {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.profile-credentials-grid .wide {
+    grid-column: span 2;
+}
+
+.profile-credentials-box input[disabled] {
+    background: #f7f7f7;
+    color: #333;
+    cursor: not-allowed;
+    opacity: 1;
+}
+
+@media (max-width: 768px) {
+    .profile-credentials-overlay {
+        padding: 12px;
+        align-items: flex-start;
+    }
+
+    .profile-credentials-box {
+        width: 100%;
+        max-height: calc(100vh - 24px);
+        padding: 18px;
+        border-radius: 10px;
+        margin: 0 auto;
+    }
+
+    .profile-credentials-box h3 {
+        font-size: 22px;
+    }
+
+    .profile-credentials-note {
+        font-size: 18px;
+        line-height: 1.4;
+        margin-bottom: 16px;
+    }
+
+    .profile-credentials-actions {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 480px) {
+    .profile-credentials-overlay {
+        padding: 10px;
+    }
+
+    .profile-credentials-box {
+        max-height: calc(100vh - 20px);
+        padding: 14px;
+    }
+
+    .profile-credentials-box h3 {
+        font-size: 20px;
+    }
+
+    .profile-credentials-note,
+    .profile-credentials-box label,
+    .profile-credentials-box input,
+    .profile-credentials-box select,
+    .profile-credentials-box textarea {
+        font-size: 16px;
+    }
+
+    .profile-credentials-grid {
+        gap: 12px;
+        margin-bottom: 16px;
+    }
+}
+
+.profile-credentials-grid .password-input-wrap {
+    position: relative;
+    width: 100%;
+}
+
+.profile-credentials-grid .password-input-wrap input {
+    width: 100%;
+    margin: 0;
+    padding: 10px 44px 10px 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    display: block;
+    box-sizing: border-box;
+}
+
+.profile-credentials-grid .password-toggle-btn {
+    position: absolute;
+    top: 50%;
+    right: 12px;
+    transform: translateY(-50%);
+    width: 22px;
+    height: 22px;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    border-radius: 0;
+    background: transparent !important;
+    color: #222;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+    box-shadow: none;
+    outline: none;
+    min-width: 0;
+}
+
+.profile-credentials-grid .password-toggle-btn:hover,
+.profile-credentials-grid .password-toggle-btn:focus,
+.profile-credentials-grid .password-toggle-btn:focus-visible,
+.profile-credentials-grid .password-toggle-btn:active {
+    background: transparent !important;
+    color: #222;
+    box-shadow: none;
+    outline: none;
+}
+
+.profile-credentials-grid .password-toggle-btn[hidden] {
+    display: none !important;
+}
+
+.profile-credentials-grid .password-toggle-icon {
+    display: none;
+    width: 22px;
+    height: 22px;
+    line-height: 0;
+    pointer-events: none;
+}
+
+.profile-credentials-grid .password-toggle-icon svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.profile-credentials-grid .password-toggle-btn[data-visible="false"] .password-toggle-show {
+    display: inline-block;
+}
+
+.profile-credentials-grid .password-toggle-btn[data-visible="true"] .password-toggle-hide {
+    display: inline-block;
+}
+
+#existingPassword::-ms-reveal,
+#existingPassword::-ms-clear,
+#newPassword::-ms-reveal,
+#newPassword::-ms-clear,
+#confirmNewPassword::-ms-reveal,
+#confirmNewPassword::-ms-clear {
+    display: none;
+}

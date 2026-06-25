@@ -1,0 +1,338 @@
+/* ================================
+   Sign Up Page
+================================ */
+.required {
+  color: red;
+}
+
+.registration-section {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  max-width: 1000px;
+  margin: 2rem auto;
+  font-family: 'Open Sans Condensed', sans-serif;
+}
+
+.registration-section h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-family: 'Open Sans Condensed', sans-serif;
+  color: var(--navy);
+  font-size: 30px;
+  /* default for mobile */
+  font-weight: 400;
+}
+
+@media (min-width: 768px) {
+  .registration-section h2 {
+    font-size: 32px;
+    /* tablets */
+  }
+}
+
+@media (min-width: 1200px) {
+  .registration-section h2 {
+    font-size: 40px;
+    /* desktops */
+  }
+}
+
+.registration-section h3 {
+  margin: 1.5rem 0 1rem;
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-weight: 400;
+  color: var(--gold-ink);
+  font-size: clamp(24px, 2vw, 32px);
+}
+
+.registration-section p {
+  font-size: 14px;
+  color: var(--muted);
+  margin-top: -10px;
+  margin-bottom: 1.5rem;
+  font-family: 'Inter', sans-serif;
+}
+
+/* Grid layout for form fields */
+.registration-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem 1.5rem;
+  align-items: end;
+  /* ✅ makes inputs align at the bottom */
+}
+
+.registration-grid .wide {
+  grid-column: 1 / -1;
+}
+
+.registration-grid p {
+  display: block;
+  width: 100%;
+  min-height: 40px;
+  padding: 8px 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background: #f9f9f9;
+  box-sizing: border-box;
+  margin: 0;
+  font-size: 14px;
+  color: #333;
+}
+
+.registration-section label {
+  display: block;
+  margin-bottom: 0.3rem;
+  font-weight: 400;
+  font-family: 'Inter', sans-serif;
+  color: var(--text);
+}
+
+.registration-section input,
+.registration-section select {
+  width: 100%;
+  padding: 0.6rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-family: Arial, sans-serif;
+  box-sizing: border-box;
+  /* ensures padding/border don’t affect width */
+}
+
+.registration-section input[type="date"] {
+  padding: 0.6rem;
+  /* match text inputs */
+  height: 2.4rem;
+  /* force consistent height */
+  font-size: 0.95rem;
+  /* match text */
+  font-family: Arial, sans-serif;
+  box-sizing: border-box;
+}
+
+/* Buttons */
+.registration-buttons {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.registration-continue-btn {
+  background: #ffffff;
+  border: none;
+  padding: 0.8rem 2rem;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: background 0.3s ease;
+  color: #FFD700;
+}
+
+.registration-continue-btn:hover {
+  background: #eaeaea;
+}
+
+.registration-back-btn {
+  background: var(--gold);
+  border: none;
+  padding: 0.8rem 2rem;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.registration-back-btn:hover {
+  background: #e6c200;
+}
+
+.password-field {
+  position: relative;
+
+}
+
+.password-input-wrap {
+  position: relative;
+  width: 100%;
+}
+
+.password-input-wrap input {
+  width: 100%;
+  margin: 0;
+  padding: 0.6rem 2.8rem 0.6rem 0.6rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  display: block;
+  box-sizing: border-box;
+}
+
+.password-toggle-btn {
+  position: absolute;
+  top: 50%;
+  right: 12px;
+  transform: translateY(-50%);
+  width: 22px;
+  height: 22px;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent !important;
+  color: #222;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  box-shadow: none;
+  outline: none;
+  min-width: 0;
+}
+
+.password-toggle-btn:hover,
+.password-toggle-btn:focus,
+.password-toggle-btn:focus-visible,
+.password-toggle-btn:active {
+  background: transparent !important;
+  color: #222;
+  box-shadow: none;
+  outline: none;
+}
+
+.password-toggle-btn[hidden] {
+  display: none !important;
+}
+
+.password-toggle-icon {
+  display: none;
+  width: 22px;
+  height: 22px;
+  line-height: 0;
+  pointer-events: none;
+}
+
+.password-toggle-icon svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.password-toggle-btn[data-visible="false"] .password-toggle-show {
+  display: inline-block;
+}
+
+.password-toggle-btn[data-visible="true"] .password-toggle-hide {
+  display: inline-block;
+}
+
+#signupPassword::-ms-reveal,
+#signupPassword::-ms-clear,
+#signupConfirmPassword::-ms-reveal,
+#signupConfirmPassword::-ms-clear {
+  display: none;
+}
+
+.username-field {
+  position: relative;
+}
+
+.input-error {
+  position: absolute;
+
+  left: 0;
+  top: 100%;
+  color: red;
+  font-size: 0.85rem;
+  margin-top: 0.2rem;
+  z-index: 10;
+  display: none;
+}
+
+.confirmation-overlay {
+  display: none;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.confirmation-box {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 12px;
+  text-align: center;
+  max-width: 300px;
+  width: 100%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.confirmation-box p {
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+}
+
+.confirmation-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.confirmation-buttons button {
+  padding: 0.7rem 1.5rem;
+  border: none;
+  border-radius: 25px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#confirmYes {
+  background: #FFD700;
+  color: white;
+  font-weight: bold;
+}
+
+#confirmYes:hover {
+  background: #e6c200;
+}
+
+#confirmNo {
+  background: #f1f1f1;
+  color: #FFD700;
+}
+
+#confirmNo:hover {
+  background: #ddd;
+}
+
+#backToHome {
+  background: #FFD700;
+  color: white;
+  font-weight: bold;
+  padding: 0.7rem 1.5rem;
+  border: none;
+  border-radius: 25px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#backToHome:hover {
+  background: #e6c200;
+}

@@ -1,0 +1,400 @@
+.offertory-container {
+  max-width: 900px;
+  margin: 40px auto;
+  background: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  font-family: 'Open Sans Condensed', sans-serif;
+}
+
+.offertory-note {
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+}
+
+.offertory-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.form-group {
+  flex: 1;
+  min-width: 250px;
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+input[type="number"],
+input[type="text"],
+select,
+input[type="file"] {
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  outline: none;
+  transition: border-color 0.2s;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+input[type="number"]:focus,
+input[type="text"]:focus,
+select:focus,
+input[type="file"]:focus {
+  border-color: #888;
+}
+
+input[readonly] {
+  background: #f7f7f7;
+  font-weight: bold;
+}
+
+select {
+  background: #fff;
+  cursor: pointer;
+}
+
+.bank-proof-group[hidden] {
+  display: none !important;
+}
+
+.offertory-file-note {
+  display: block;
+  margin-top: 6px;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.bank-proof-input-wrap {
+  position: relative;
+  width: 100%;
+}
+
+.bank-proof-input-wrap input[type="file"] {
+  padding-right: 42px;
+}
+
+.clear-bank-proof-btn {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  width: 22px;
+  height: 22px;
+  border: none;
+  border-radius: 50%;
+  background: #d32f2f;
+  color: #fff;
+  font-size: 16px;
+  line-height: 1;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+.clear-bank-proof-btn:hover {
+  background: #b71c1c;
+}
+
+.clear-bank-proof-btn[hidden] {
+  display: none !important;
+}
+
+.form-total {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 700;
+}
+
+.offertory-overlay {
+  position: fixed;
+  /* ensure it’s out of any parent stacking */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  /* higher than header/sidebar */
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease;
+}
+
+.offertory-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.overlay-box {
+  background: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  text-align: center;
+  max-width: 350px;
+  width: 90%;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.overlay-box h2 {
+  margin-bottom: 15px;
+  font-family: 'Cinzel', serif;
+}
+
+.overlay-box h3 {
+  margin-bottom: 10px;
+  font-family: 'Cinzel', serif;
+}
+
+.overlay-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.overlay-buttons button {
+  background: var(--primary-color, #6a1b9a);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 16px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.2s;
+}
+
+.overlay-buttons button:hover {
+  background: var(--primary-dark, #4a148c);
+}
+
+.submit-btn {
+  background: #FFD700;
+  color: white;
+  display: block;
+  width: 100%;
+  margin: 10px 0;
+  padding: 12px;
+  font-size: 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.submit-btn:hover {
+  background: #e6c200;
+}
+
+.couple-share-box {
+  margin-bottom: 10px;
+  padding: 12px 14px;
+  border: 1px solid #e3e3e3;
+  border-radius: 8px;
+  background: #fafafa;
+}
+
+.couple-share-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.couple-share-label input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  margin: 0;
+}
+
+.offertory-history-trigger-wrap {
+  max-width: 900px;
+  margin: 40px auto 0;
+  padding: 0 2px;
+}
+
+.offertory-history-btn {
+  background: #f1c94a;
+  border: none;
+  color: #fff;
+  font-weight: 400;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: 'Oswald', sans-serif;
+  font-size: 14px;
+  line-height: 1.2;
+}
+
+.offertory-history-btn:hover {
+  background: #e0b939;
+}
+
+.offertory-history-modal-overlay {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  box-sizing: border-box;
+}
+
+.offertory-history-modal-content {
+  background: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  width: min(1000px, calc(100vw - 32px));
+  max-width: min(1000px, calc(100vw - 32px));
+  max-height: calc(100vh - 32px);
+  overflow-y: auto;
+  position: relative;
+  box-sizing: border-box;
+  font-family: 'Open Sans Condensed', sans-serif;
+}
+
+.offertory-history-close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: #dc3545;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}
+
+.offertory-history-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding-right: 40px;
+  margin-bottom: 12px;
+}
+
+.offertory-history-modal-title {
+  margin: 0;
+  font-family: 'Open Sans Condensed', sans-serif;
+}
+
+.offertory-history-export {
+  display: flex;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.offertory-history-export-btn {
+  background: #f1c94a;
+  border: none;
+  color: #fff;
+  font-weight: 400;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: 'Oswald', sans-serif;
+  font-size: 14px;
+  line-height: 1.2;
+}
+
+.offertory-history-export-btn:hover {
+  background: #e0b939;
+}
+
+.offertory-history-details-section {
+  margin-top: 15px;
+}
+
+.offertory-history-table-container {
+  overflow-x: auto;
+  background: #fff;
+  border-radius: 8px;
+}
+
+#userMemberHistoryTable {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: 'Open Sans Condensed', sans-serif;
+}
+
+#userMemberHistoryTable thead {
+  border-bottom: 2px solid #ddd;
+}
+
+#userMemberHistoryTable th,
+#userMemberHistoryTable td {
+  padding: 0 8px 5px 5px;
+  border-right: 1px solid #ddd;
+}
+
+#userMemberHistoryTable th:last-child,
+#userMemberHistoryTable td:last-child {
+  border-right: none;
+}
+
+#userMemberHistoryTable th {
+  font-weight: 700;
+  text-align: left;
+  white-space: nowrap;
+}
+
+#userMemberHistoryTable td {
+  border-bottom: 1px solid #eee;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  white-space: nowrap;
+}
+
+#userMemberHistoryTable tbody tr:hover td {
+  background: #fff7b3;
+}
+
+#userMemberHistoryTable .offertory-history-overall-row td {
+  background: #f7f7f7;
+  font-weight: 700;
+}
+
+@media (max-width: 768px) {
+  .offertory-history-trigger-wrap {
+    margin: 24px auto 0;
+    padding: 0 16px;
+  }
+
+  .offertory-history-modal-content {
+    width: calc(100vw - 24px);
+    max-width: calc(100vw - 24px);
+    max-height: calc(100vh - 24px);
+  }
+
+  .offertory-history-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

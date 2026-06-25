@@ -1,0 +1,998 @@
+/*INDEX.PHP*/
+/*INDEX.PHP*/
+/*INDEX.PHP*/
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+/* === A11Y: tokens, helpers, focus === */
+:root {
+  --navy: #1A1F36;
+  --gold: #FFD700;
+  --gold-ink: #B8860B;
+  --text: #1a1a1a;
+  --muted: #555;
+  --focus: #005fcc;
+}
+
+/* Screen-reader-only utility */
+.visually-hidden {
+  position: absolute !important;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
+  white-space: nowrap;
+  border: 0;
+  padding: 0;
+  margin: -1px;
+}
+
+/* Strong, consistent keyboard focus */
+:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 2px;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+header {
+  position: relative;
+  padding: 15px 0;
+  z-index: 1500;
+}
+
+header .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+header .logo {
+  margin-right: auto;
+  /* forces nav to the right */
+  display: flex;
+  align-items: center;
+  gap: clamp(5px, 1vw, 20px);
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  body.homepage header .container {
+    padding-left: 20px;
+    /* smaller on mobile */
+    padding-right: 20px;
+  }
+}
+
+.logo {
+  display: flex;
+  gap: clamp(5px, 1vw, 20px);
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+  .logo {
+    left: 0;
+    /* reset left offset on smaller screens */
+  }
+}
+
+.logo img {
+  height: clamp(40px, 8vw, 90px);
+}
+
+.logo h1 {
+  font-size: clamp(18px, 2.5vw, 32px);
+  /* scales smoothly */
+  margin: 0;
+  color: #FFD700;
+  font-family: 'Cinzel', serif;
+  font-weight: 500;
+}
+
+.logo p {
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-size: clamp(10px, 1.2vw, 16px);
+  /* scales better */
+  margin: clamp(-5px, -0.5vw, -8px) 0 0 clamp(4px, 0.5vw, 8px);
+  /* responsive margins */
+  color: black;
+}
+
+.condensed {
+  font-family: 'Open Sans Condensed', sans-serif;
+}
+
+.nav-links {
+  display: flex;
+  gap: 20px;
+  /* consistent spacing between all links */
+  font-size: clamp(12px, 1.5vw, 16px);
+  position: relative;
+  left: 0;
+}
+
+/* Reset nav movement on smaller screens */
+@media (max-width: 768px) {
+  .nav-links {
+    left: 0;
+    /* fully visible on small screens */
+  }
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+  }
+
+  .hamburger {
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 2000;
+    box-sizing: border-box;
+  }
+
+  .hamburger-bar {
+    display: block;
+    width: 26px;
+    height: 4px;
+    background: #1A1F36;
+    border-radius: 999px;
+  }
+
+  .logo {
+    left: 0;
+  }
+}
+
+@media (min-width: 769px) {
+  .hamburger {
+    display: none;
+  }
+
+  .hamburger-bar {
+    display: none;
+  }
+}
+
+.nav-links a {
+  margin-left: 0;
+  /* remove extra margin */
+  text-decoration: none;
+  font-weight: bold;
+  position: relative;
+  top: -0.5em;
+  color: var(--gold-ink);
+  border-bottom: 2px solid transparent;
+}
+
+.nav-links a:hover,
+.nav-links a:focus-visible {
+  border-bottom-color: var(--gold);
+}
+
+.nav-links a#userBtn {
+  border-bottom: none !important;
+}
+
+.nav-links a#userBtn:hover,
+.nav-links a#userBtn:focus-visible {
+  border-bottom: none !important;
+}
+
+.nav-links .dropdown {
+  position: relative;
+  /* already exists */
+}
+
+.nav-links .dropdown-content {
+  left: 0;
+  /* align directly under parent */
+  right: auto;
+  /* remove conflicting right */
+}
+
+/* Dropdown container */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Desktop dropdown content */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 80%;
+  /* always below parent */
+  left: 0;
+  /* align left with parent */
+  background-color: white;
+  min-width: 200px;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  max-height: 270px;
+  overflow-y: auto;
+  margin: 0;
+  padding: 0;
+}
+
+.dropdown-content a {
+  display: block;
+  width: 100%;
+  padding: 15px 15px;
+  /* consistent padding */
+  text-align: left;
+  font-size: 13px;
+  font-weight: 400;
+  color: #000;
+  box-sizing: border-box;
+  margin-top: 5px;
+  margin-bottom: -7px;
+}
+
+.dropdown-content a:focus-visible {
+  background: #ffe88a;
+}
+
+.dropdown-content a:hover {
+  background-color: #FFD700;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+
+.dropdown>a {
+  color: var(--gold-ink);
+  text-decoration: none;
+  margin-left: 0px;
+  position: relative;
+  padding-right: 10px;
+}
+
+.dropdown>a::after {
+  content: " ▾";
+  font-size: 15px;
+  color: var(--gold-ink);
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.user-icon {
+  height: clamp(20px, 4vh, 30px);
+  /* scales with viewport height */
+  position: static;
+  margin: clamp(-5px, -1vh, -8px) clamp(5px, 1vw, 15px);
+}
+
+/* ========================
+   Desktop User Panel
+   ======================== */
+.user-panel {
+  display: none;
+  /* hidden by default */
+  position: absolute;
+  top: 60px;
+  right: 10px;
+  background: white;
+  border: 1px solid #ccc;
+  padding: 10px 15px;
+  width: 200px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  z-index: 2100;
+  /* above header */
+  box-sizing: border-box;
+}
+
+.user-panel[aria-hidden="false"] {
+  display: block;
+}
+
+.user-panel p {
+  margin: 10px 0 30px 0;
+  font-size: 20px;
+  font-weight: 500;
+  color: black;
+  font-family: 'Oswald', sans-serif;
+}
+
+.user-panel a {
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  display: block;
+  text-decoration: none;
+  color: #000;
+  padding: 8px 0;
+}
+
+.user-panel a:hover {
+  color: #FFD700;
+}
+
+/* Only show on desktop */
+@media (max-width: 768px) {
+  .user-panel {
+    display: none !important;
+  }
+}
+
+/* ========================
+   SIDEBAR + OVERLAY STYLES
+   ======================== */
+.sidebar {
+  position: fixed;
+  top: 0;
+  right: -300px;
+  /* hidden off-screen */
+  width: 250px;
+  height: 100%;
+  background: white;
+  color: white;
+  padding: 20px;
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
+  transition: right 0.3s ease;
+  z-index: 1900;
+}
+
+.sidebar p.welcome {
+  font-family: 'Oswald', sans-serif;
+  color: black;
+  /* or another visible color */
+}
+
+.sidebar h3 {
+  position: relative;
+  color: #FFD700;
+}
+
+.sidebar a {
+  display: block;
+  padding: 10px 0;
+  color: #FFD700;
+  text-decoration: none;
+}
+
+.sidebar a:hover {
+  color: rgb(170, 123, 15);
+}
+
+/* Overlay background */
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  /* Darken for contrast */
+}
+
+.overlay-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.25);
+  /* 25% dim */
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease;
+  z-index: 1999;
+}
+
+#offertoryOverlay.active {
+  opacity: 1;
+  visibility: visible;
+  display: flex;
+  /* ensures the overlay-box centers correctly */
+  justify-content: center;
+  align-items: center;
+}
+
+/* Active states */
+.sidebar.active {
+  right: 0;
+  z-index: 2000;
+}
+
+.overlay-bg.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Sidebar close button */
+.close-btn {
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: #FFD700;
+  cursor: pointer;
+  position: absolute;
+  top: 10px;
+  right: 15px;
+}
+
+/* Sidebar Dropdown with Scroll & Color */
+.sidebar .dropdown-content {
+  position: static;
+  /* flows naturally inside sidebar */
+  max-height: 300px;
+  /* limit height for scroll */
+  overflow-y: auto;
+  /* enable vertical scrolling */
+  padding-left: 15px;
+  background: transparent;
+  /* match sidebar background */
+}
+
+/* Sidebar Dropdown Links */
+.sidebar .dropdown-content a {
+  color: #1a1a1a;
+  /* dark text for readability */
+  padding: 7px 0;
+  /* vertical spacing between items */
+  text-align: left;
+  font-size: 12px;
+  font-weight: 500;
+  /* slightly bolder for readability */
+  text-decoration: none;
+}
+
+/* Hover effect */
+.sidebar .dropdown-content a:hover {
+  color: #FFD700;
+  /* gold highlight on hover */
+  background: rgba(0, 0, 0, 0.05);
+  /* subtle background effect */
+}
+
+/* Arrow indicator for sidebar dropdown */
+.sidebar .dropdown>a::after {
+  content: "▾";
+  color: #FFD700;
+  position: static;
+  /* inline, follows the text */
+  margin-left: 6px;
+  /* small gap after the word */
+  margin-right: 0;
+  /* reset float spacing */
+  float: none;
+  /* no floating */
+  transform: none;
+  /* reset transforms */
+}
+
+/* Scrollbar styling for Webkit browsers */
+.sidebar .dropdown-content::-webkit-scrollbar {
+  width: 6px;
+}
+
+.sidebar .dropdown-content::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 3px;
+}
+
+.sidebar .dropdown-content::-webkit-scrollbar-thumb {
+  background: #FFD700;
+  border-radius: 3px;
+}
+
+.sidebar .dropdown-content::-webkit-scrollbar-thumb:hover {
+  background: #e6c200;
+}
+
+/* ========== Sections ========== */
+.home-section {
+  position: relative;
+  width: 100%;
+  height: auto;
+  padding: 50px 0;
+}
+
+.home-inner {
+  width: 90%;
+  /* Controls the width of the container */
+  max-width: 1200px;
+  /* Limits the maximum width */
+  margin: 0 auto;
+  /* Centers the container */
+}
+
+.home-content {
+  position: relative;
+  width: 100%;
+  height: auto;
+}
+
+/* Image: Making it behave like .group-card image */
+.home-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+  /* Rounded corners like .group-card */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  /* Box shadow like .group-card */
+}
+
+.text-overlay {
+  position: absolute;
+  bottom: 15px;
+  /* anchors text near bottom-left */
+  left: 20px;
+  color: white;
+  text-align: left;
+  line-height: 1.1;
+}
+
+/* Heading (CHURCH SERVICE) */
+.text-overlay h2 {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: clamp(8px, 1.6vw, 12px);
+  letter-spacing: 1px;
+}
+
+/* SUNDAYS */
+.text-overlay p {
+  margin: 0;
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700;
+  font-size: clamp(22px, 4vw, 32px);
+}
+
+/* 3PM (larger, below Sundays) */
+.text-overlay p .time {
+  display: block;
+  font-size: clamp(40px, 6vw, 64px);
+  font-weight: 700;
+  margin-top: -5px;
+  /* pull closer to SUNDAYS */
+}
+
+/* ===== Announcements Container ===== */
+.announcements {
+  margin-top: 30px;
+}
+
+.announcements-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 30px;
+  /* adds space left and right */
+}
+
+.announcements-title {
+  font-size: clamp(22px, 2.4vw, 28px);
+  font-weight: 700;
+  color: #3b3b3b;
+  margin-bottom: 20px;
+}
+
+.table-container {
+  overflow-x: auto;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  padding: 15px;
+}
+
+#announcementsTable {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  /* ensures equal column widths */
+}
+
+#announcementsTable thead th {
+  background: #0077cc;
+  color: white;
+  padding: 12px;
+  text-align: center;
+  font-weight: bold;
+  border: 1px solid #ddd;
+  font-size: 15px;
+  letter-spacing: 0.5px;
+}
+
+#announcementsTable thead th,
+#announcementsTable tbody td {
+  width: 14.28%;
+  /* equal width for 7 days */
+  vertical-align: middle;
+}
+
+#announcementsTable tbody td {
+  padding: 12px;
+  text-align: center;
+  border: 1px solid #ddd;
+  vertical-align: middle;
+  word-wrap: break-word;
+}
+
+/* Merge cell special style (Monday–Friday merged prayer row) */
+#announcementsTable td[colspan] {
+  background: #f1faff;
+  font-weight: bold;
+  font-style: italic;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  #announcementsTable {
+    font-size: 13px;
+    /* make text smaller */
+    min-width: 800px;
+  }
+
+  #announcementsTable th,
+  #announcementsTable td {
+    padding: 8px;
+    /* tighter padding */
+  }
+
+  .table-container {
+    overflow-x: auto;
+    /* allow side scroll if too wide */
+  }
+}
+
+/* ===== Event Slider Container ===== */
+.recentevents {
+  margin-top: 30px;
+}
+
+.recentevents-title {
+  font-size: clamp(22px, 2.4vw, 28px);
+  font-weight: 700;
+  color: #3b3b3b;
+  margin-bottom: 20px;
+}
+
+.recentevents-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 30px;
+  /* adds space left and right */
+}
+
+.slider-container {
+  position: relative;
+}
+
+.event-slider {
+  position: relative;
+  top: 20px;
+  width: 90%;
+  /* responsive % width */
+  max-width: 700px;
+  /* never exceed this */
+  margin: 0 auto 40px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.event-image {
+  width: 100%;
+  height: clamp(280px, 50vh, 400px);
+  /* scales with screen height */
+  object-fit: cover;
+  /* still fills, but resizes dynamically */
+  display: block;
+}
+
+.event-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: clamp(10px, 3vw, 20px);
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0));
+  color: white;
+}
+
+.event-header {
+  position: relative;
+  top: clamp(5px, 2vw, 20px);
+  display: flex;
+  align-items: baseline;
+  gap: clamp(5px, 2vw, 15px);
+}
+
+.event-title {
+  margin: 0;
+  font-size: clamp(14px, 3vw, 22px);
+  font-weight: 500;
+  color: #ffffff;
+  font-family: 'Oswald', sans-serif;
+}
+
+.event-date {
+  margin: 0;
+  font-size: clamp(10px, 2vw, 14px);
+  color: #ffffff;
+}
+
+.event-details {
+  position: relative;
+  top: clamp(2px, 1.7vw, 8px);
+  font-size: clamp(10px, 1.5vw, 12px);
+  margin-bottom: clamp(10px, 2vw, 15px);
+}
+
+.event-readmore-button {
+  display: inline-block;
+  padding: clamp(6px, 1.5vw, 8px) clamp(20px, 5vw, 40px);
+  background: #FFD700;
+  color: white;
+  text-decoration: none;
+  border-radius: 25px;
+  font-weight: bold;
+  font-size: clamp(11px, 2vw, 13px);
+  transition: background 0.3s ease;
+  position: relative;
+  top: clamp(2px, 1vw, 5px);
+}
+
+.event-readmore-button:hover {
+  background: #e6c200;
+}
+
+.event-mover {
+  display: none;
+  position: relative;
+}
+
+.event-mover.active {
+  display: block;
+}
+
+.event-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: clamp(20px, 8vw, 50px);
+  /* scales for mobile/desktop */
+  border-radius: 50%;
+  z-index: 15;
+  transition: color 0.3s;
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
+}
+
+.event-arrow:hover {
+  color: #e6c200;
+}
+
+.event-arrow.left {
+  left: clamp(8px, 2vw, 15px);
+}
+
+.event-arrow.right {
+  right: clamp(8px, 2vw, 15px);
+}
+
+/* ===== Groups Section ===== */
+.groups {
+  margin-top: 60px;
+}
+
+.groups-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 30px;
+}
+
+.groups-title {
+  margin: 0 0 16px;
+  font-size: clamp(22px, 2.4vw, 28px);
+  font-weight: 700;
+  color: #3b3b3b;
+  position: relative;
+  top: 30px;
+}
+
+.groups-lumalaki {
+  position: relative;
+  top: 60px;
+  width: 10vh;
+}
+
+.groups-section {
+  margin: 60px 0;
+}
+
+.groups-grid {
+  position: relative;
+  top: 40px;
+  display: flex;
+  gap: 50px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.group-card {
+  position: relative;
+  width: 180px;
+  height: 180px;
+  border-radius: 10px;
+  overflow: hidden;
+  flex-shrink: 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: transform .25s ease;
+}
+
+.group-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.group-card:hover {
+  transform: scale(1.1);
+}
+
+/* Church Short Motto Section */
+.shortmotto-section {
+  margin-top: 60px 0;
+  text-align: center;
+}
+
+.shortmotto-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 30px;
+}
+
+.shortmotto-title {
+  margin: 0 0 16px;
+  font-size: clamp(26px, 3vw, 40px);
+  font-weight: 700;
+  color: #3b3b3b;
+  position: relative;
+  top: 60px;
+}
+
+.shortmotto-details {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 200;
+  /* ExtraLight */
+  max-width: 700px;
+  margin: 0 auto;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #555;
+  text-align: center;
+  position: relative;
+  top: 65px;
+}
+
+/* Accreditations Section */
+.accreditations-section {
+  margin: 120px 0;
+}
+
+.accreditations-title {
+  font-size: clamp(22px, 2.4vw, 28px);
+  font-weight: 700;
+  color: #3b3b3b;
+  margin-bottom: 20px;
+}
+
+.accreditations-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 30px;
+  /* adds space left and right */
+}
+
+.accreditations-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.accreditation-card {
+  display: flex;
+  flex-direction: column;
+  /* stack logo and name vertically */
+  align-items: center;
+  /* center logo and text */
+  width: 200px;
+}
+
+.accreditation-card img {
+  width: 100%;
+  height: 100px;
+  object-fit: contain;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+.accreditation-name {
+  margin-top: 10px;
+  text-align: center;
+  font-size: clamp(14px, 1.2vw, 16px);
+  color: #3b3b3b;
+  line-height: 1.4;
+}
+
+.spouse-field-wrap {
+  position: relative;
+}
+
+.spouse-suggestions {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  right: 0;
+  background: #fff;
+  border: 1px solid #d9d9d9;
+  border-radius: 8px;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+  max-height: 220px;
+  overflow-y: auto;
+  z-index: 1200;
+}
+
+.spouse-suggestion-item,
+.spouse-suggestion-empty {
+  display: block;
+  width: 100%;
+  padding: 10px 12px;
+  text-align: left;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+
+.spouse-suggestion-item {
+  border: 0;
+  background: #fff;
+  cursor: pointer;
+}
+
+.spouse-suggestion-item:hover,
+.spouse-suggestion-item:focus-visible {
+  background: #f3f3f3;
+}
+
+.spouse-suggestion-empty {
+  color: #666;
+}

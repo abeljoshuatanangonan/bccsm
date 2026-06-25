@@ -1,0 +1,110 @@
+/* MINISTRIES PAGE */
+/* MINISTRIES PAGE */
+/* MINISTRIES PAGE */
+/* MINISTRIES PAGE */
+/* ================================
+   MINISTRIES Page Styles
+================================ */
+/* Featured Event Section */
+.ministriespage-title {
+  font-size: clamp(22px, 2.4vw, 28px);
+  font-weight:700;
+  color: #3b3b3b;
+  margin-bottom: 20px;
+}
+.ministries-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 auto;
+}
+
+.ministries {
+  padding: 10px 20px;
+  font-family: 'Inter', sans-serif;
+  max-width: 1000px;   /* controls width of content */
+  margin: 0 auto;     /* centers everything */
+}
+
+.ministry-card {
+  margin-top: 30px;
+  margin-bottom: 45px;
+}
+
+.ministry-top {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.ministry-top img {
+  width: 200px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.ministry-details {
+  flex: 1;
+  position: relative;
+}
+
+.ministry-details h2 {
+  font-family: 'Oswald', sans-serif;
+  font-size: clamp(20px, 2vw, 30px);
+  font-weight: 700;
+  margin-top: -0.3em;  /* pulls up relative to font size */
+  margin-bottom: 0.5em; 
+}
+
+.join-btn {
+  background: #FFD700;
+  border: none;
+  border-radius: 20px;
+  padding: 5px 15px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transition: background 0.3s ease;
+}
+.join-btn:hover {
+  background: #e6c200;
+}
+@media (max-width: 768px) { 
+  .join-btn { 
+  position: static; /* remove absolute positioning */ 
+  margin-top: auto; /* space below h2 */
+  display: inline-block;/* keeps it neat under text */
+}
+
+}
+.objective, .task {
+  margin: 15px 0;
+}
+.objective p, .task p {
+  font-size: clamp(12px, 2vw, 14px);
+  font-weight: 400;
+  margin: 8px 0 ;
+}
+
+.objective strong,
+.task strong {
+  display: block;
+  font-family: 'Inter', sans-serif;
+  font-weight: bold;
+  font-size: clamp(15px, 2vw, 17px);
+}
+
+.ministry-desc {
+  font-size: clamp(12px, 2vw, 14px);
+  line-height: 1.6;
+  margin-top: 15px;
+  text-align: justify;
+}
+
+.ministry-card hr {
+  margin-top: 20px;
+  border: 0;
+  border-top: 1px solid #ccc;
+}
