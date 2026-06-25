@@ -1,0 +1,2 @@
+# bccsm
+Church Management System
