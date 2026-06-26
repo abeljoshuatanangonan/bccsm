@@ -41,7 +41,7 @@ This repository does not include private church records, real member information
 ![Login Page](screenshots/login-page.png)
 
 ### Admin Configuration
-![Admin Configuration](screenshots/admin-configuration.png)
+![Admin Configuration](screenshots/admin-configuration-v2.png)
 
 ### Member Management
 ![Member Management](screenshots/member-management.png)
