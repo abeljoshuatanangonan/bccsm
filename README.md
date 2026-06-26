@@ -28,3 +28,23 @@ Ongoing development.
 ## Security and Privacy Note
 
 This repository does not include private church records, real member information, real financial data, uploaded documents, or production database credentials.
+
+## Screenshots
+
+### Homepage Banner
+![Homepage Banner](screenshots/homepage-banner.png)
+
+### Homepage Announcements and Events
+![Homepage Announcements and Events](screenshots/homepage-announcements-events.png)
+
+### Login Page
+![Login Page](screenshots/login-page.png)
+
+### Admin Configuration
+![Admin Configuration](screenshots/admin-configuration.png)
+
+### Member Management
+![Member Management](screenshots/member-management.png)
+
+### Offertory Management
+![Offertory Management](screenshots/offertory-management.png)
